@@ -14,6 +14,26 @@ function quicksort(arr) {
 
   // Return the left, pivot and right in sorted order
 
+  if (arr.length <= 1) return arr
+
+  let right = []
+  let left = []
+
+  let pivot = arr[0]
+  
+  for (let i = 1; i < arr.length; i++) {
+    let element = arr[i]
+    if (element > pivot) {
+      right.push(element)
+    } else {
+      left.push(element)
+    }
+  }
+
+  let sorted = [...quicksort(left), pivot, ...quicksort(right)]
+
+  return sorted
+
 }
 
 
